@@ -1,5 +1,13 @@
 # How does Fusion work?
 
+## Table of Contents
+
+- [The big picture](#the-big-picture)
+- [The Moving Parts](#the-moving-parts)
+  - [Basic Components](#basic-components-for-just-caching-on-one-server)
+  - [Client-side components](#client-side-components-adding-real-time-updates-to-browsers)
+  - [Components for distributed scenarios](#components-for-distributed-scenarios-working-across-multiple-servers)
+
 ## The big picture
 
 We said Fusion has two core capabilities:
@@ -40,7 +48,7 @@ We can make a distinction between different degrees of complexity:
 
 Fusion supports all of these scenarios, but the simpler the scenario, the less components you need to understand.
 
-### Basic Components for just caching on one server
+### Basic Components, for just caching on one server
 
 These components form the core of Fusion. They are essential for every scenario, whether you're building a simple single-server application or a complex distributed solution. If you want to understand Fusion, start here:
 
