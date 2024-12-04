@@ -10,16 +10,17 @@ Fusion works by combining two key concepts:
 - Dependency tracking: It knows which data depends on other data
 
 Think of it like a spreadsheet:
-- When you change a cell, all formulas using that cell automatically recalculate
-- But formulas that don't depend on the changed cell stay the same
+- When you change/mutate a cell, all dependent cells become invalid (grayed out)
+- When you open/look at/get an invalid cell, it recalculates using the latest values
+- Only cells you actually open/look at/get get recalculated
 - In Excel, you create these relationships by writing formulas
 
 Similarly, with Fusion:
 - When data changes, only the affected parts update
-- Everything else stays cached
-- You create these relationships in your code by calling `Invalidate()`
-- Fusion uses these invalidation calls to build a dependency tree
-- When something changes, Fusion knows exactly what needs updating
+- Fusion detects the relationships automaticly during computation, and builds a dependency graph
+- Just after data has been changed and written to a store (db, in memory list,..), you call `Invalidate()`
+- This invalidates all dependent computations
+- Values are only recomputed when they're actually needed
 
 There's a saying that there are only two hard problems in computer science: cache invalidation and naming things. And because we are trying to solve the easier one of the two, but we need to do that perfectly (as there's nothing worse than a half-working caching system), the devil is in the details. That's why it is good to make a distinction between different degrees of complexity:
 
@@ -79,6 +80,7 @@ For multi-server deployments, Fusion adds:
   - Operation logging and replay
   - Automatic conflict resolution
   - Cluster-wide operation coordination
+  - Easy implementation for any database supported by Entity Framework
 - **RpcCallRouter** - Manages server-to-server communication:
   - Smart routing of RPC calls
   - Distributed computation coordination
