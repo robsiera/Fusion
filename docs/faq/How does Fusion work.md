@@ -42,9 +42,9 @@ There's a saying that there are only two hard problems in computer science: cach
 
 We can make a distinction between different degrees of complexity:
 
-A. Server-side only: Simplest scenario, just caching on one server
-B. Client & server: Adding real-time updates to browsers
-C. Distributed: Working across multiple servers
+- [Server-side only](#a-basic-components-for-just-caching-on-one-server): Simplest scenario, just caching on one server
+- [Client & server](#b-client-side-components-adding-real-time-updates-to-browsers): Adding real-time updates to browsers
+- [Distributed](#c-components-for-distributed-scenarios-working-across-multiple-servers): Working across multiple servers
 
 Fusion supports all of these scenarios, but the simpler the scenario, the less components you need to understand.
 
