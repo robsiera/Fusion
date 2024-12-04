@@ -2,13 +2,13 @@
 
 ## Table of Contents
 
-- [The Big Picture](#the-big-picture)
-- [The Moving Parts](#the-moving-parts)
+- [1. The Big Picture](#1-the-big-picture)
+- [2. The Moving Parts](#2-the-moving-parts)
   - [A. Basic Components](#a-basic-components-for-just-caching-on-one-server)
   - [B. Client-side components](#b-client-side-components-adding-real-time-updates-to-browsers)
   - [C. Components for distributed scenarios](#c-components-for-distributed-scenarios-working-across-multiple-servers)
 
-## The Big Picture
+## 1. The Big Picture
 
 We said Fusion has two core capabilities:
 
@@ -36,7 +36,7 @@ Similarly, with Fusion:
 - This invalidates all dependent computations
 - Values are only recomputed when they're actually needed
 
-## The Moving Parts
+## 2. The Moving Parts
 
 There's a saying that there are only two hard problems in computer science: cache invalidation and naming things. Fusion tries to solve the easier one of the two. But we need to do that perfectly as there's nothing worse than a half-working caching system. That is why the devil is in the details, meaning it is sometimes not just a simple as calling `Invalidate()`.
 
