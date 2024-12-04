@@ -1,6 +1,14 @@
 # How does Fusion work?
 
-## The big picture
+## Table of Contents
+
+- [The Big Picture](#the-big-picture)
+- [The Moving Parts](#the-moving-parts)
+  - [A. Basic Components](#a-basic-components-for-just-caching-on-one-server)
+  - [B. Client-side components](#b-client-side-components-adding-real-time-updates-to-browsers)
+  - [C. Components for distributed scenarios](#c-components-for-distributed-scenarios-working-across-multiple-servers)
+
+## The Big Picture
 
 We said Fusion has two core capabilities:
 
@@ -40,7 +48,7 @@ We can make a distinction between different degrees of complexity:
 
 Fusion supports all of these scenarios, but the simpler the scenario, the less components you need to understand.
 
-### Basic Components for just caching on one server
+### A. Basic Components, for just caching on one server
 
 These components form the core of Fusion. They are essential for every scenario, whether you're building a simple single-server application or a complex distributed solution. If you want to understand Fusion, start here:
 
@@ -58,7 +66,7 @@ These components form the core of Fusion. They are essential for every scenario,
   - Fine-grained invalidation
   - Minimal recomputation on changes
 
-### Client-side components, adding real-time updates to browsers
+### B. Client-side components, adding real-time updates to browsers
 
 (Blazor only atm. Typescript implementation should be feasible)
 
@@ -81,7 +89,7 @@ To enable real-time updates, Fusion extends its core functionality with:
   - Real-time auth state synchronization
   - Works in both Server and WebAssembly modes
 
-### Components for distributed scenarios, working across multiple servers
+### C. Components for distributed scenarios, working across multiple servers
 
 For multi-server deployments, Fusion adds:
 
