@@ -1,28 +1,38 @@
 # How does Fusion work?
 
+## The big picture
+
 We said Fusion has two core capabilities:
+
 1. Keeping Data Fresh
 2. Making Apps Fast
 
 How does it achieve this?
 Fusion works by combining two key concepts:
+
 - Smart caching: It remembers the results of computations
 - Dependency tracking: It knows which data depends on other data
 
 Think of it like a spreadsheet:
+
 - When you change/mutate a cell, all dependent cells become invalid (grayed out)
 - When you open/look at/get an invalid cell, it recalculates using the latest values
 - Only cells you actually open/look at/get get recalculated
 - In Excel, you create these relationships by writing formulas
 
 Similarly, with Fusion:
+
 - When data changes, only the affected parts update
 - Fusion detects the relationships automaticly during computation, and builds a dependency graph
 - Just after data has been changed and written to a store (db, in memory list,..), you call `Invalidate()`
 - This invalidates all dependent computations
 - Values are only recomputed when they're actually needed
 
-There's a saying that there are only two hard problems in computer science: cache invalidation and naming things. And because we are trying to solve the easier one of the two, but we need to do that perfectly (as there's nothing worse than a half-working caching system), the devil is in the details. That's why it is good to make a distinction between different degrees of complexity:
+## The Moving Parts
+
+There's a saying that there are only two hard problems in computer science: cache invalidation and naming things. Fusion tries to solve the easier one of the two. But we need to do that perfectly as there's nothing worse than a half-working caching system. That is why the devil is in the details, meaning it is sometimes not just a simple as calling `Invalidate()`.
+
+We can make a distinction between different degrees of complexity:
 
 1. Server-side only: Simplest scenario, just caching on one server
 2. Client & server: Adding real-time updates to browsers
@@ -30,9 +40,7 @@ There's a saying that there are only two hard problems in computer science: cach
 
 Fusion supports all of these scenarios, but the simpler the scenario, the less components you need to understand.
 
-# Components
-
-## Basic Components for just caching on one server
+### Basic Components for just caching on one server
 
 These components form the core of Fusion. They are essential for every scenario, whether you're building a simple single-server application or a complex distributed solution. If you want to understand Fusion, start here:
 
@@ -50,10 +58,12 @@ These components form the core of Fusion. They are essential for every scenario,
   - Fine-grained invalidation
   - Minimal recomputation on changes
 
-## Client-side components, adding real-time updates to browsers 
+### Client-side components, adding real-time updates to browsers
+
 (Blazor only atm. Typescript implementation should be feasible)
 
 To enable real-time updates, Fusion extends its core functionality with:
+
 - **ActualLab.Rpc** - Fusion's optimized client-server communication:
   - WebSocket-based RPC protocol
   - 1.5x faster than SignalR
@@ -71,9 +81,10 @@ To enable real-time updates, Fusion extends its core functionality with:
   - Real-time auth state synchronization
   - Works in both Server and WebAssembly modes
 
-## Components for distributed scenarios, working across multiple servers
+### Components for distributed scenarios, working across multiple servers
 
 For multi-server deployments, Fusion adds:
+
 - **Operation Framework (OF)** - Fusion's way of handling data modifications:
   - Transactional operations across servers
   - Command execution and routing via Commander
