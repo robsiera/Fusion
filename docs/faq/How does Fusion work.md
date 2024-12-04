@@ -91,7 +91,7 @@ To enable real-time updates, Fusion extends its core functionality with:
 
 ### C. Components for distributed scenarios, working across multiple servers
 
-For multi-server deployments, Fusion adds:
+For multi-server deployments, using the same database on all servers, Fusion adds:
 
 - **Operation Framework (OF)** - Fusion's way of handling data modifications:
   - Transactional operations across servers
