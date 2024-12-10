@@ -42,9 +42,30 @@ Without Fusion, developers need to:
 
 Fusion handles all of this automatically, letting developers focus on business logic instead of infrastructure.
 
+
 ## When might Fusion NOT be the best choice?
 
 - Very simple CRUD applications without real-time requirements
 - Applications where caching is not important
 - Systems requiring complete control over caching logic
 - Projects where you cannot use .NET (Core)
+
+
+## Common Questions
+
+As you start working with Fusion, you might have questions about:
+
+1. [How does Fusion work?](How%20does%20Fusion%20work.md)
+   - Learn about the big picture
+   - Understand the moving parts
+   - See how components work together
+
+2. [Understanding Invalidation](Understanding%20Invalidation.md)
+   - Different invalidation approaches
+   - When to use which approach
+   - How invalidation works in distributed scenarios
+
+3. [Why are there update delays?](Why%20are%20there%20update%20delays.md)
+   - The purpose of update delays
+   - How UI Commander helps
+   - Customizing update behavior
